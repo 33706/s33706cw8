@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using s33706cw8.Context;
+using s33706cw8.DTOs;
 using s33706cw8.Entities;
 
 namespace s33706cw8.Services;
@@ -13,7 +14,7 @@ public class DbService :  IDbService
         _context = context;
     }
 
-    public async Task<IActionResult> GetPatients()
+    public async Task<object> GetPatients()
     {
         var query = _context.Patients
             .Select(p => new
